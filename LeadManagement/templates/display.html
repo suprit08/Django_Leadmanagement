@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display</title>
+</head>
+<body>
+<a href="{% url 'home' %}">Back to Home</a>
+<table border="2">
+    <tr>
+        <th>lead</th><th>follow-up</th>
+    </tr>
+    {% for q in qs %}
+    <tr>
+        <td>{{ q.contact_person_name }}<br>{{ q.phone_number }}</td>
+        <td>{{ q.response }}-{{ q.date_of_followup|date:"SHORT_DATE_FORMAT" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
